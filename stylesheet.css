@@ -1,0 +1,110 @@
+
+body {
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+    font-family: "Rubik", sans-serif;
+}
+h1, h2, h3, h4, h6, h6, p, a, ol, ul {
+    margin: 0;
+    padding: 0;
+}
+/* CSS RESET ABOVE */
+
+.grid {
+    display: grid;
+    width: 380px;
+    height: 540px;    
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-gap: 2px;
+    background-color: #0D0D0D;
+    padding: 10px;
+    margin: 0 auto;
+    border: 10px solid black;
+    border-radius: 10px;
+}
+.grid-number {
+    background-color: #3B3B40;
+    text-align: center;
+    line-height: 85px;
+    font-size: 1.2em;
+    font-weight: 700;
+    cursor: pointer;
+    color: #F2F2F2;
+    border-radius: 5px;
+}
+.grid-number:hover {
+    background-color: #737373;
+    border-radius: 5px;
+
+}
+.grid-blank {
+    background-color: #3B3B40;
+    text-align: center;
+    line-height: 85px;
+    font-size: 1.2em;
+    font-weight: 700;
+    color: #F2F2F2;
+    border-radius: 5px;
+
+    
+}
+.grid-operation {
+    background-color: #252526;
+    text-align: center;
+    line-height: 85px;
+    font-size: 1.2em;
+    font-weight: 700;
+    color: #F2F2F2;
+    cursor: pointer;    
+}
+.grid-operation:hover {
+    background-color: #404040;
+}
+.grid-result {
+    grid-row: 1 / 2;
+    grid-column: 1/ 5;
+    background-color: #F2F2F2;
+    color: black;
+    border: 2px solid black;
+    text-align: right;
+    padding: 0 1em;
+    margin: 5px 0;
+    letter-spacing: 5px;
+}
+#display {
+    font-size: 4em;
+    line-height: 80px;
+}
+
+#plus {
+    grid-row: 5/7;
+    grid-column: 4 /5;
+    line-height: 170px;
+}
+
+#a-c {
+    background-color: #C70039;
+}
+#a-c:hover {
+    background-color: #D8053A;
+}
+
+
+footer {
+    margin: 1em auto;
+    text-align: center;
+}
+footer p {
+    margin: 1em 0;
+}
+footer img {
+    display: inline-block;
+    height: 2em;
+}
+
+#decimal {
+    cursor: auto;
+}
