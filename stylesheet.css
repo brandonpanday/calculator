@@ -5,6 +5,7 @@ body {
     padding: 0;
     line-height: 0;
     font-family: "Rubik", sans-serif;
+    background-color: #D4D4D4;
 }
 h1, h2, h3, h4, h6, h6, p, a, ol, ul {
     margin: 0;
@@ -21,7 +22,7 @@ h1, h2, h3, h4, h6, h6, p, a, ol, ul {
     grid-gap: 2px;
     background-color: #0D0D0D;
     padding: 10px;
-    margin: 0 auto;
+    margin: 2em auto;
     border: 10px solid black;
     border-radius: 10px;
 }
@@ -59,6 +60,7 @@ h1, h2, h3, h4, h6, h6, p, a, ol, ul {
     font-weight: 700;
     color: #F2F2F2;
     cursor: pointer;    
+    border-radius: 5px;
 }
 .grid-operation:hover {
     background-color: #404040;
@@ -79,14 +81,22 @@ h1, h2, h3, h4, h6, h6, p, a, ol, ul {
     line-height: 80px;
 }
 
-#plus {
+#add {
     grid-row: 5/7;
     grid-column: 4 /5;
     line-height: 170px;
 }
 
 #a-c {
+    text-align: center;
+    line-height: 85px;
+    font-size: 1.2em;
+    font-weight: 700;
+    color: #F2F2F2;
+    cursor: pointer;    
+    border-radius: 5px;
     background-color: #C70039;
+    border-radius: 5px;
 }
 #a-c:hover {
     background-color: #D8053A;
