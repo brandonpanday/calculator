@@ -3,6 +3,7 @@ let numOne;
 let numTwo;
 let total;
 let dec;
+let operator;
 // Calculation functions
 let add = function(a,b) {
     return a + b;
@@ -39,6 +40,16 @@ window.onload = () => {
         return decimal;
 
     }
+
+    // AC Button
+    let ac = document.querySelector('#a-c');
+    ac.addEventListener("click", function() {
+        array = [0];
+        numOne = undefined;
+        numTwo = undefined;
+        operator = undefined;
+        updateArray();
+    });
 
     // Add numbers to array
     let numbers = document.querySelectorAll('.grid-number');
