@@ -1,10 +1,8 @@
-let total = 0;
-let array = [];
-
+let array = [0];
 let numOne;
 let numTwo;
-let operation;
-
+let total;
+let dec;
 // Calculation functions
 let add = function(a,b) {
     return a + b;
@@ -30,17 +28,44 @@ window.onload = () => {
     let updateArray = function() {
         display.textContent = array.join("");
     };
+    //check if decimal in number
+    let checkDecimal = function(array) {
+        let decimal  = false;
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] == '.') {
+                decimal = true;
+            }
+        }
+        return decimal;
+
+    }
 
     // Add numbers to array
     let numbers = document.querySelectorAll('.grid-number');
     numbers.forEach(function(e) {
-        e.addEventListener("click", function() {
+        e.addEventListener("click", function(i) {
             if (array.length < 8) {
-                array.push(e.innerText);
-                updateArray();
+                if (i.target.id == 'decimal') {
+                    dec = checkDecimal(array);
+                    if (dec == false) {
+                        array.push(".");
+                        updateArray();
+                    }
+                }
+                else if ((i.target.id == '0') && (array.length == 0)) {
+                    return null;
+                }
+                else if (array[0] == 0) {
+                    array = [];
+                    array.push(i.target.id);
+                    updateArray();
+                }
+                else {
+                    array.push(i.target.id);
+                    updateArray();
+                }
+                
             }
-            console.log(array);
-            
         })
     });
 
@@ -50,40 +75,63 @@ window.onload = () => {
         e.addEventListener("click", function(i) {
             if (numOne == undefined) {
                 numOne = storeValue(array);
-                array = [];
-                operation = i.target.id;
-                console.log(operation);
+                array = []; 
             }
             else if (numTwo == undefined) {
-                numTwo = storeValue(array);
-                array = [];
-                total = operate(numOne, numTwo, operation);
-                display.textContent = total;
+                if (array.length == 0) {
+                    numOne = operate(numOne, numOne, operator);
+                    display.textContent = numOne;
+                    numTwo = undefined;
+                }
+                else {
+                    numTwo = storeValue(array);
+                    array = [];
+                    numOne = operate(numOne, numTwo, operator);
+                    display.textContent = numOne;
+                    numTwo = undefined;
+                }
+                
             }
-            
-
+            operator = i.target.id;
         })
     })
 
     // Convert array to int and store in variable number
     let storeValue = function(array) {
-        let store = parseInt(array.join(""));
+        let store = parseFloat(array.join(""));
         return store;
     }
 
     let operate = function(num1, num2, operator) {
+        let answer;
         if (operator == "add") {
-            return add(num1,num2);
+            answer = add(num1,num2);
         }
         if (operator == "subtract") {
-            return subtract(num1,num2);
+            answer = subtract(num1,num2);
         }
         if (operator == "multiply") {
-            return multiply(num1,num2);
+            answer = multiply(num1,num2);
         }
         if (operator == "divide") {
-            return divide(num1,num2);
+            if (num2 == 0) {
+                answer = "Nice try!";
+            }
+            else {
+                answer = divide(num1,num2);
+            }
+            
         }
+        if (operator == 'equal') {
+            return numOne;
+        }
+
+        if (answer > 99999999) {
+            answer = answer.toPrecision(3);
+            return answer;
+        }
+        else
+            return answer;
     }
 
 }
