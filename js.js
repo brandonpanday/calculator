@@ -142,7 +142,9 @@ window.onload = () => {
             return answer;
         }
         else
-            return answer;
+            if (answer % 1 !== 0)
+                return answer.toFixed(2);
+            else return answer;
     }
 
 }
